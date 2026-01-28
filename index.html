@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>San Valentín 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ===== PANTALLA BASE ===== */
+        .pantalla {
+            height: 100vh;
+            width: 100vw;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* 👉 CAMBIA SOLO LA RUTA ENTRE COMILLAS */
+        .fondo-inicial {
+          background-image: url("imagenes/primeraimagen.jpeg");
+        }
+
+        .fondo-no {
+          background-image: url("imagenes/Sidicequeno.jpeg");
+        }
+
+        .fondo-final {
+         background-image: url("imagenes/SanvalentinAxA.png");
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: clamp(26px, 7vw, 40px);
+            text-shadow: 2px 2px 6px black;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 6vw;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 420px;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: clamp(22px, 6vw, 32px);
+        }
+
+        button {
+            font-size: clamp(18px, 5vw, 22px);
+            padding: 14px 30px;
+            margin: 12px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 80%;
+            max-width: 280px;
+        }
+
+        .si {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        .no {
+            background-color: #ccc;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PANTALLA PREGUNTA -->
+    <div class="pantalla fondo-inicial" id="pantallaPregunta">
+        <div class="container">
+            <h1 id="textoPregunta">¿Quieres ser mi San Valentín? 💕</h1>
+            <button class="si" id="btnSi" onclick="aceptar()">Sí 💖</button>
+            <button class="no" id="btnNo" onclick="negar()">No 😢</button>
+        </div>
+    </div>
+
+    <!-- PANTALLA FINAL -->
+    <div class="pantalla fondo-final" id="pantallaFinal">
+        💘 ¡Sabía que dirías que sí! 💘
+    </div>
+
+    <script>
+        function negar() {
+            document.getElementById("textoPregunta").textContent =
+                "Era solo para preguntar… serás mi San Valentín sí o sí 💖";
+
+            // 👉 CAMBIA SOLO LA RUTA ARRIBA, NO AQUÍ
+            document.getElementById("pantallaPregunta").classList.remove("fondo-inicial");
+            document.getElementById("pantallaPregunta").classList.add("fondo-no");
+
+            document.getElementById("btnNo").style.display = "none";
+        }
+
+        function aceptar() {
+            document.getElementById("pantallaPregunta").style.display = "none";
+            document.getElementById("pantallaFinal").style.display = "flex";
+        }
+    </script>
+
+</body>
+</html>
